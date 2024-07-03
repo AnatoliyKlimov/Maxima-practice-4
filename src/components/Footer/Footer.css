@@ -1,0 +1,68 @@
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 5px 0;
+}
+
+.subscribe-container {
+    display: flex;
+    align-items: center;
+}
+
+.subscribe-container input {
+    padding: 5px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.subscribe-container button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+.app-badges img {
+    display: block;
+    margin: 10px 0;
+    max-width: 120px;
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 10px;
+}
+
+.social-icons i {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+}
