@@ -1,12 +1,12 @@
 // src/components/Header.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
 import bellIcon from '../assets/bell_icon.svg';
 import cartIcon from '../assets/cart_icon.svg';
 import profileIcon from '../assets/profile_icon.svg';
-import searchIcon from '../assets/search_icon.svg';
+import searchIcon from '../assets/search_icon.svg'
 import logo from '../assets/logo.svg';
 
 const Header = () => {
@@ -15,6 +15,7 @@ const Header = () => {
     const [userDropdown, setUserDropdown] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const userRef = useRef(null);
+    const navigate = useNavigate();
 
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
@@ -26,7 +27,11 @@ const Header = () => {
     };
 
     const handleLogin = () => {
-        setIsAuthenticated(true);
+        if (!isAuthenticated) {
+            navigate('/login');
+        } else {
+            setUserDropdown(!userDropdown);
+        }
     };
 
     const handleLogout = () => {
@@ -64,9 +69,9 @@ const Header = () => {
                 </nav>
                 <div className="header-actions">
                     <div className="header-search">
-                        <input type="text" placeholder="What are you looking for?" />
+                        <input type="text" placeholder="Search" />
                         <button>
-                            <img src={searchIcon} alt="SearchIcon"/>
+                            <img src={searchIcon} alt="searchIcon"/>
                         </button>
                     </div>
 
@@ -90,7 +95,7 @@ const Header = () => {
                         <div className="header-profile" ref={userRef}>
                             <button
                                 className={isAuthenticated ? 'authenticated' : ''}
-                                onClick={toggleUserDropdown}
+                                onClick={handleLogin}
                             >
                                 <img src={profileIcon} alt="Profile" />
                             </button>
