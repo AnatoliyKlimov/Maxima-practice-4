@@ -6,6 +6,7 @@ import './Header.css';
 import bellIcon from '../assets/bell_icon.svg';
 import cartIcon from '../assets/cart_icon.svg';
 import profileIcon from '../assets/profile_icon.svg';
+import searchIcon from '../assets/search_icon.svg';
 import logo from '../assets/logo.svg';
 
 const Header = () => {
@@ -63,8 +64,10 @@ const Header = () => {
                 </nav>
                 <div className="header-actions">
                     <div className="header-search">
-                        <input type="text" placeholder="Search" />
-                        <button>🔍</button>
+                        <input type="text" placeholder="What are you looking for?" />
+                        <button>
+                            <img src={searchIcon} alt="SearchIcon"/>
+                        </button>
                     </div>
 
                     <div className="language-toggle" onMouseEnter={() => setLanguageDropdown(true)} onMouseLeave={() => setLanguageDropdown(false)}>
