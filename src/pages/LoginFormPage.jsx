@@ -1,8 +1,8 @@
 // src/pages/LoginFormPage.jsx
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../store/authSlice';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginFormPage.css';
 import shoppingCart from '../assets/shopping_cart.png';
 
@@ -10,11 +10,19 @@ const LoginFormPage = () => {
     const [emailOrPhone, setEmailOrPhone] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(loginUser({ emailOrPhone, password }));
     };
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/');
+        }
+    }, [isAuthenticated, navigate]);
 
     return (
         <div className="login-page">

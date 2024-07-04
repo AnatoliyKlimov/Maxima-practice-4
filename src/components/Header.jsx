@@ -29,7 +29,7 @@ const Header = () => {
         if (isAuthenticated) {
             setUserDropdown(!userDropdown);
         } else {
-            navigate('/login');
+            navigate('/login-form');
         }
     };
 
@@ -74,14 +74,18 @@ const Header = () => {
                         </button>
                     </div>
 
-                    <div className="language-toggle" onMouseEnter={() => setLanguageDropdown(true)} onMouseLeave={() => setLanguageDropdown(false)}>
-                        {i18n.language && ( // проверка существования i18n.language
+                    <div
+                        className="language-toggle"
+                        onMouseEnter={() => setLanguageDropdown(true)}
+                        onMouseLeave={() => setLanguageDropdown(false)}
+                    >
+                        {i18n.language && (
                             <button className="language-button">{i18n.language.toUpperCase()}</button>
                         )}
                         {languageDropdown && (
                             <div className="language-menu">
-                                <button onClick={() => changeLanguage('en')}>EN</button>
-                                <button onClick={() => changeLanguage('ru')}>RU</button>
+                                <button onClick={() => changeLanguage('en')} >EN</button>
+                                <button onClick={() => changeLanguage('ru')} >RU</button>
                             </div>
                         )}
                     </div>

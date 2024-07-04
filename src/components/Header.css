@@ -2,9 +2,11 @@
 .header {
     background-color: #fff;
     border-bottom: 1px solid #eaeaea;
-    padding: 10px 20px;
+    padding: 40px 0 16px;
     display: flex;
     align-items: center;
+    max-width: 1170px;
+    margin: 0 auto;
 }
 
 .header-content {
@@ -15,7 +17,6 @@
 }
 
 .header-logo img {
-    height: 40px;
 }
 
 .header-nav {
