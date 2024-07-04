@@ -8,28 +8,22 @@ import './Header.css';
 import bellIcon from '../assets/bell_icon.svg';
 import cartIcon from '../assets/cart_icon.svg';
 import profileIcon from '../assets/profile_icon.svg';
-import searchIcon from '../assets/search_icon.svg'
+import searchIcon from '../assets/search_icon.svg';
 import logo from '../assets/logo.svg';
 
 const Header = () => {
     const { i18n } = useTranslation();
-    const [languageDropdown, setLanguageDropdown] = useState(false);
     const [userDropdown, setUserDropdown] = useState(false);
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const userRef = useRef(null);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const changeLanguage = (lang) => {
-        i18n.changeLanguage(lang);
-        setLanguageDropdown(false);
-    };
-
     const toggleUserDropdown = () => {
         if (isAuthenticated) {
             setUserDropdown(!userDropdown);
         } else {
-            navigate('/login-form');
+            navigate('/login'); // Перенаправлять на страницу регистрации
         }
     };
 
@@ -74,21 +68,6 @@ const Header = () => {
                         </button>
                     </div>
 
-                    <div
-                        className="language-toggle"
-                        onMouseEnter={() => setLanguageDropdown(true)}
-                        onMouseLeave={() => setLanguageDropdown(false)}
-                    >
-                        {i18n.language && (
-                            <button className="language-button">{i18n.language.toUpperCase()}</button>
-                        )}
-                        {languageDropdown && (
-                            <div className="language-menu">
-                                <button onClick={() => changeLanguage('en')} >EN</button>
-                                <button onClick={() => changeLanguage('ru')} >RU</button>
-                            </div>
-                        )}
-                    </div>
 
                     <div className="header-icons">
                         <button>
