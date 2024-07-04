@@ -1,7 +1,13 @@
+// src/pages/HomePage.jsx
 import React from 'react';
+import AccountSidebar from '../components/AccountSidebar';
 
 const HomePage = () => {
-    return <h2>Home Page</h2>;
-}
+    return (
+        <div className="home-page">
+            <AccountSidebar />
+        </div>
+    );
+};
 
 export default HomePage;

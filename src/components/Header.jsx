@@ -7,7 +7,7 @@ import { logoutUser } from '../store/authSlice';
 import './Header.css';
 import bellIcon from '../assets/bell_icon.svg';
 import cartIcon from '../assets/cart_icon.svg';
-import profileIcon from '../assets/profile_icon.svg';
+import userIcon from '../assets/user.svg';
 import searchIcon from '../assets/search_icon.svg';
 import logo from '../assets/logo.svg';
 
@@ -68,7 +68,6 @@ const Header = () => {
                         </button>
                     </div>
 
-
                     <div className="header-icons">
                         <button>
                             <img src={bellIcon} alt="Notifications" />
@@ -81,7 +80,7 @@ const Header = () => {
                                 className={isAuthenticated ? 'authenticated' : ''}
                                 onClick={toggleUserDropdown}
                             >
-                                <img src={profileIcon} alt="Profile" />
+                                <img src={userIcon} alt="Profile" className="user-icon" />
                             </button>
                             {userDropdown && isAuthenticated && (
                                 <div className="user-menu">

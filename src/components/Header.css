@@ -132,8 +132,6 @@
 
 .header-profile button.authenticated {
     background-color: red;
-    fill: #cccccc;
-    stroke: #dddddd;
     border-radius: 50%;
     padding: 9px 10px 5px;
 }
@@ -169,5 +167,5 @@
 
 .user-menu a:hover,
 .user-menu button:hover {
-    color: red;
+    color: black;
 }

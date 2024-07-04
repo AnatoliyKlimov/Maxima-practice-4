@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import LoginFormPage from './pages/LoginFormPage';
+import AccountSidebar from './components/AccountSidebar';
 
 function App() {
     return (
@@ -25,6 +26,11 @@ function App() {
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/login-form" element={<LoginFormPage />} />
+                    <Route path="/account" element={<AccountSidebar />} />
+                    <Route path="/order" element={<AccountSidebar />} />
+                    <Route path="/cancellations" element={<AccountSidebar />} />
+                    <Route path="/reviews" element={<AccountSidebar />} />
+                    <Route path="/logout" element={<AccountSidebar />} />
                 </Routes>
             </div>
         </Router>
