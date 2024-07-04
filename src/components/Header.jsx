@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../store/authSlice';
 import './Header.css';
 import bellIcon from '../assets/bell_icon.svg';
 import cartIcon from '../assets/cart_icon.svg';
@@ -13,9 +15,10 @@ const Header = () => {
     const { i18n } = useTranslation();
     const [languageDropdown, setLanguageDropdown] = useState(false);
     const [userDropdown, setUserDropdown] = useState(false);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
     const userRef = useRef(null);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
@@ -23,19 +26,15 @@ const Header = () => {
     };
 
     const toggleUserDropdown = () => {
-        setUserDropdown(!userDropdown);
-    };
-
-    const handleLogin = () => {
-        if (!isAuthenticated) {
-            navigate('/login');
-        } else {
+        if (isAuthenticated) {
             setUserDropdown(!userDropdown);
+        } else {
+            navigate('/login');
         }
     };
 
     const handleLogout = () => {
-        setIsAuthenticated(false);
+        dispatch(logoutUser());
         setUserDropdown(false);
     };
 
@@ -74,7 +73,6 @@ const Header = () => {
                             <img src={searchIcon} alt="searchIcon"/>
                         </button>
                     </div>
-
                     <div className="language-toggle" onMouseEnter={() => setLanguageDropdown(true)} onMouseLeave={() => setLanguageDropdown(false)}>
                         <button className="language-button">{i18n.language.toUpperCase()}</button>
                         {languageDropdown && (
@@ -95,7 +93,7 @@ const Header = () => {
                         <div className="header-profile" ref={userRef}>
                             <button
                                 className={isAuthenticated ? 'authenticated' : ''}
-                                onClick={handleLogin}
+                                onClick={toggleUserDropdown}
                             >
                                 <img src={profileIcon} alt="Profile" />
                             </button>
