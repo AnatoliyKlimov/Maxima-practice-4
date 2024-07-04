@@ -5,6 +5,7 @@ import App from './App';
 import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import './i18n';  // убедитесь, что i18n импортирован
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>

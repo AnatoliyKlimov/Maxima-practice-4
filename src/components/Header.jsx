@@ -73,8 +73,11 @@ const Header = () => {
                             <img src={searchIcon} alt="searchIcon"/>
                         </button>
                     </div>
+
                     <div className="language-toggle" onMouseEnter={() => setLanguageDropdown(true)} onMouseLeave={() => setLanguageDropdown(false)}>
-                        <button className="language-button">{i18n.language.toUpperCase()}</button>
+                        {i18n.language && ( // проверка существования i18n.language
+                            <button className="language-button">{i18n.language.toUpperCase()}</button>
+                        )}
                         {languageDropdown && (
                             <div className="language-menu">
                                 <button onClick={() => changeLanguage('en')}>EN</button>
