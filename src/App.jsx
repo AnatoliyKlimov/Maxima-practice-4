@@ -1,3 +1,4 @@
+// src/App.jsx
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -9,6 +10,7 @@ import ShopPage from './pages/ShopPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
+import LoginFormPage from './pages/LoginFormPage';
 
 function App() {
     return (
@@ -22,6 +24,7 @@ function App() {
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/login" element={<LoginPage />} />
+                    <Route path="/login-form" element={<LoginFormPage />} />
                 </Routes>
             </div>
         </Router>
