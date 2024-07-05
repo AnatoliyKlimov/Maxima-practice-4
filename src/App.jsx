@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import TopHeader from './components/TopHeader';
+import Footer from './components/Footer';
 
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
@@ -32,6 +33,7 @@ function App() {
                     <Route path="/reviews" element={<AccountSidebar />} />
                     <Route path="/logout" element={<AccountSidebar />} />
                 </Routes>
+                <Footer />
             </div>
         </Router>
     );
