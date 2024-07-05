@@ -2,12 +2,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css'; // Create a CSS file for styling
-import facebookIcon from '../assets/facebook.png'; // Example of importing an icon
-import twitterIcon from '../assets/twitter.png';
-import instagramIcon from '../assets/instagram.png';
-import linkedinIcon from '../assets/linkedin.png';
-import googlePlayBadge from '../assets/google-play-badge.png';
-import appStoreBadge from '../assets/app-store-badge.png';
+import facebookIcon from '../assets/facebook.svg'; // Example of importing an icon
+import twitterIcon from '../assets/twitter.svg';
+import instagramIcon from '../assets/instagram.svg';
+import linkedinIcon from '../assets/linkedin.svg';
+import googlePlayBadge from '../assets/google-play-badge.svg';
+import appStoreBadge from '../assets/app-store-badge.svg';
 
 const Footer = () => {
     return (
