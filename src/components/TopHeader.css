@@ -1,0 +1,37 @@
+.top-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.top-header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.top-header-content span {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.language-toggle {
+    display: flex;
+}
+
+.language-toggle button {
+    background: none;
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.language-toggle button.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.language-toggle button:hover {
+    text-decoration: underline;
+}
